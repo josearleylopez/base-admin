@@ -29,7 +29,7 @@ export class MedicoComponent implements OnInit {
       if (id !== 'nuevo') {
         this.cargarMedico(id);
       }
-    }
+    });
   }
 
   ngOnInit() {

@@ -1,0 +1,54 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarTercero(input.value)" type="text" class="form-control" placeholder="Buscar tercero....">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-right">
+                    <button [routerLink]="['/tercero','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                    <i class="fa fa-plus"> Crear Tercero</i>
+                  </button>
+                </div>
+                <h3 class="card-title">Terceros Registrados ( <small>{{_terceroService.totalTerceros}}</small> )</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Razon Social</th>
+                            <th>Telefono</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tercero of terceros">
+                            <td>{{tercero.codigo}}</td>
+                            <td>{{tercero.razonSocial}}</td>
+                            <td>{{tercero.telefono}}</td>
+                            <td>
+                                <button [routerLink]="['/tercero',tercero._id]" routerLinkActive="router-link-active" class="btn btn-primary">
+                              <i class="fa fa-edit"></i>
+                            </button>
+                                <button (click)="borrarTercero(tercero)" class="btn btn-danger">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

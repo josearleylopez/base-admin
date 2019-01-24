@@ -1,0 +1,96 @@
+<div class="row animated fadeIn">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="box-title m-b-0">Conductor: {{conductor.nombres}}</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="forma" (ngSubmit)="guardarConductor()" novalidate="novalidate">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Codigo</label>
+                            <input formControlName="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Nombres</label>
+                            <input formControlName="nombres" name="nombres" type="text" class="form-control" placeholder="Nombres conductor">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Apellidos</label>
+                            <input formControlName="apellidos" name="apellidos" type="text" class="form-control" placeholder="Apellidos conductor">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Telefono</label>
+                            <input formControlName="telefono" name="telefono" type="text" class="form-control" placeholder="Numero telefono">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-md-12">
+                            <label for="date-licencia">Licencia Conduccion</label>
+                            <input formControlName="licenciaConduccion" class="form-control" type="date" id="date-licencia">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="form-group col-md-12">
+                            <label for="date-manipulacion">Certificado Manipulacion</label>
+                            <input formControlName="certificadoManipulacion" class="form-control" type="date" id="date-manipulacion">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input formControlName="certificadoPazSalvo" type="checkbox" id="checkbox_1" class="filled-in" />
+                            <label for="checkbox_1">Examenes Medicos</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input formControlName="certificadoExamenes" type="checkbox" id="checkbox_2" class="filled-in" />
+                            <label for="checkbox_2">Paz y Salvo</label>
+                        </div>
+                    </div>
+
+
+                    <button [disabled]="!forma.valid" type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                  <i class="fa fa-save"></i> Guardar
+              </button>
+                    <a [routerLink]="['/conductores']" class="btn btn-inverse waves-effect waves-light">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" *ngIf="conductor._id">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="box-title m-b-0">Fotografia</h3>
+            </div>
+            <div class="card-body">
+                <img (click)="cambiarImagen()" [src]="conductor.img | imagen:'conductor'" class="img-circle img-fluid pointer">
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3" *ngIf="conductor._id">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="box-title m-b-0">Vehiculo</h3>
+            </div>
+            <div class="card-body">
+                <img (click)="cambiarImagen()" [src]="conductor.img | imagen:'conductor'" class="img-circle img-fluid pointer">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <pre>{{forma.value | json}}</pre>
+</div>

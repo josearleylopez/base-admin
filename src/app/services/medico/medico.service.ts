@@ -4,7 +4,6 @@ import { URL_SERVICIOS } from '../../config/config';
 import { map, filter } from 'rxjs/operators';
 import { UsuarioService } from '../usuario/usuario.service';
 import { Medico } from '../../models/medico.model';
-import { NG_MODEL_WITH_FORM_CONTROL_WARNING } from '@angular/forms/src/directives';
 import swal from 'sweetalert';
 
 @Injectable({

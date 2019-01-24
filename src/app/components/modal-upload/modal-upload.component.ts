@@ -19,7 +19,7 @@ export class ModalUploadComponent implements OnInit {
   ngOnInit() {
   }
 
-  cerraModal() {
+  cerrarModal() {
     this.imagenSubir = null;
     this.imagenTemp = null;
     this._modalUploadService.ocultarModal();
@@ -37,7 +37,7 @@ export class ModalUploadComponent implements OnInit {
     }
     this.imagenSubir = archivo;
     const reader = new FileReader();
-    let urlImagenTemp = reader.readAsDataURL(archivo);
+    const urlImagenTemp = reader.readAsDataURL(archivo);
     reader.onloadend = () => this.imagenTemp = reader.result;
 
   }
@@ -47,10 +47,10 @@ export class ModalUploadComponent implements OnInit {
       .then(res => {
         console.log(res);
         this._modalUploadService.notificacion.emit(res);
-        this.cerraModal();
+        this.cerrarModal();
       })
       .catch(err => {
-        console.log('Error en la carga');
+        console.log('Error en la carga', err);
       });
   }
 

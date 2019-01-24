@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 import { SharedModule } from '../shared/shared.module';
@@ -22,6 +22,18 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { TercerosComponent } from './terceros/terceros.component';
+import { TerceroComponent } from './terceros/tercero.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { ConductoresComponent } from './conductores/conductores.component';
+import { CentrosCostoComponent } from './centros-costo/centros-costo.component';
+import { ProgramasComponent } from './programas/programas.component';
+import { RutasComponent } from './rutas/rutas.component';
+import { VehiculoComponent } from './vehiculos/vehiculo.component';
+import { ConductorComponent } from './conductores/conductor.component';
+import { RutaComponent } from './rutas/ruta.component';
+
 
 
 @NgModule({
@@ -41,6 +53,17 @@ import { MedicoComponent } from './medicos/medico.component';
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
+    BusquedaComponent,
+    TercerosComponent,
+    TerceroComponent,
+    VehiculosComponent,
+    ConductoresComponent,
+    CentrosCostoComponent,
+    ProgramasComponent,
+    RutasComponent,
+    VehiculoComponent,
+    ConductorComponent,
+    RutaComponent,
   ],
   exports : [
     DashboardComponent,
@@ -51,6 +74,7 @@ import { MedicoComponent } from './medicos/medico.component';
   imports : [
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     ChartsModule,
     PipesModule,
     CommonModule,

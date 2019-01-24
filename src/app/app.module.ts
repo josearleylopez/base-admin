@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -17,7 +18,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +26,7 @@ import { RegisterComponent } from './login/register.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     PagesModule,
     FormsModule,
     ReactiveFormsModule,
