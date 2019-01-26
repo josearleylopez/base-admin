@@ -20,6 +20,7 @@ import { ConductorComponent } from './conductores/conductor.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { RutaComponent } from './rutas/ruta.component';
 import { CentrosCostoComponent } from './centros-costo/centros-costo.component';
+import { CentroCostoComponent } from './centros-costo/centro-costo.component';
 import { ProgramasComponent } from './programas/programas.component';
 import { VehiculoComponent } from './vehiculos/vehiculo.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
@@ -54,6 +55,7 @@ const pagesRoutes: Routes = [
       { path: 'rutas', component: RutasComponent, data: {titulo: 'Matenimiento de Rutas'} },
       { path: 'ruta/:id', component: RutaComponent, data: {titulo: 'Actualizar Ruta'} },
       { path: 'centros-costo', component: CentrosCostoComponent, data: {titulo: 'Matenimiento de Centros de Costo'} },
+      { path: 'centro-costo/:id', component: CentroCostoComponent, data: {titulo: 'Actualizar Centro Costo'} },
       { path: 'programas', component: ProgramasComponent, data: {titulo: 'Matenimiento de Centros de Costo'} },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     ]},

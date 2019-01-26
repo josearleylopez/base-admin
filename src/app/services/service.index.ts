@@ -1,3 +1,6 @@
+export { CentroCostoService } from './centro-costo/centro-costo.service';
+export { RutaService } from './ruta/ruta.service';
+export { VehiculoService } from './vehiculo/vehiculo.service';
 export { ConductorService } from './conductor/conductor.service';
 export { TerceroService } from './tercero/tercero.service';
 export { MedicoService } from './medico/medico.service';
@@ -9,5 +12,3 @@ export { UsuarioService } from './usuario/usuario.service';
 export { SettingsService } from './settings/settings.service';
 export { SharedService } from './shared/shared.service';
 export { SidebarService } from './shared/sidebar.service';
-
-

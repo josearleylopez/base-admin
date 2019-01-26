@@ -23,6 +23,8 @@ export class ImagenPipe implements PipeTransform {
         return url + '/usuarios/' + img;
       case 'conductor':
         return url + '/conductores/' + img;
+      case 'vehiculo':
+        return url + '/vehiculos/' + img;
       case 'medico':
         return url + '/medicos/' + img;
       case 'hospital':

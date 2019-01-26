@@ -1,3 +1,71 @@
-<p>
-  rutas works!
-</p>
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarRutas(input.value)" type="text" class="form-control" placeholder="Buscar ruta....">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+                    <button [routerLink]="['/ruta','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                <i class="fa fa-plus"> Crear Ruta</i>
+              </button>
+                </div>
+
+                <h3 class="card-title">Rutas registradas ( <small>{{_rutaService.totalRutas}}</small> )</h3>
+
+                <table class="table table-hover" *ngIf="!cargando">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Origen</th>
+                            <th>Destino</th>
+                            <th>Flete</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ruta of rutas">
+                            <td>{{ruta.nombre}}</td>
+                            <td>{{ruta.origen.nombre}}</td>
+                            <td>{{ruta.destino.nombre}}</td>
+                            <td>{{ruta.valorFlete}}</td>
+                            <td>
+                                <button [routerLink]="['/ruta',ruta._id]" routerLinkActive="router-link-active" class="btn btn-primary">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                                <button (click)="borrarRuta(ruta)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarInicio(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarInicio(5)" class="btn btn-secondary">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

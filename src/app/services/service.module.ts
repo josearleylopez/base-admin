@@ -15,7 +15,10 @@ import {
   HospitalService,
   MedicoService,
   TerceroService,
-  ConductorService
+  ConductorService,
+  VehiculoService,
+  RutaService,
+  CentroCostoService
 } from './service.index';
 
 @NgModule({
@@ -34,7 +37,10 @@ import {
     HospitalService,
     MedicoService,
     TerceroService,
-    ConductorService
+    ConductorService,
+    VehiculoService,
+    RutaService,
+    CentroCostoService
   ],
   declarations: []
 })

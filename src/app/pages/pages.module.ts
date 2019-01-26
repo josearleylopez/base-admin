@@ -28,6 +28,7 @@ import { TerceroComponent } from './terceros/tercero.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { ConductoresComponent } from './conductores/conductores.component';
 import { CentrosCostoComponent } from './centros-costo/centros-costo.component';
+import { CentroCostoComponent } from './centros-costo/centro-costo.component';
 import { ProgramasComponent } from './programas/programas.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { VehiculoComponent } from './vehiculos/vehiculo.component';
@@ -59,6 +60,7 @@ import { RutaComponent } from './rutas/ruta.component';
     VehiculosComponent,
     ConductoresComponent,
     CentrosCostoComponent,
+    CentroCostoComponent,
     ProgramasComponent,
     RutasComponent,
     VehiculoComponent,

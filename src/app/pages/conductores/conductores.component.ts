@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Conductor } from 'src/app/models/conductor.model';
+import { Conductor } from '../../models/conductor.model';
 import { ConductorService, ModalUploadService } from 'src/app/services/service.index';
 
 declare var swal: any;

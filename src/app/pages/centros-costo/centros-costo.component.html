@@ -1,3 +1,70 @@
-<p>
-  centros-costo works!
-</p>
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarCentrosCosto(input.value)" type="text" class="form-control" placeholder="Buscar centro costo....">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+                    <button [routerLink]="['/centro-costo','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                <i class="fa fa-plus"> Crear Centro Costo</i>
+              </button>
+                </div>
+
+                <h3 class="card-title">Centros de costo registrados ( <small>{{_centroCostoService.totalCentrosCosto}}</small> )</h3>
+
+                <table class="table table-hover" *ngIf="!cargando">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let centroCosto of centrosCosto">
+                            <td>{{centroCosto.codigo}}</td>
+                            <td>{{centroCosto.nombre}}</td>
+                            <td *ngIf="centroCosto.estado">Activo</td>
+                            <td *ngIf="!centroCosto.estado">Inactivo</td>
+                            <td>
+                                <button [routerLink]="['/centro-costo',centroCosto._id]" routerLinkActive="router-link-active" class="btn btn-primary">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                                <button (click)="borrarCentroCosto(centroCosto)" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarInicio(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarInicio(5)" class="btn btn-secondary">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

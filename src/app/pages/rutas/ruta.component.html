@@ -1,3 +1,88 @@
-<p>
-  ruta works!
-</p>
+<div class="row animated fadeIn">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="box-title m-b-0">Ruta: {{ruta.nombre}}</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="forma" (ngSubmit)="guardarRuta()" novalidate="novalidate">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Nombre</label>
+                            <input formControlName="nombre" name="nombre" type="text" class="form-control" placeholder="Placa">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Origen</label>
+                            <select formControlName="origen" name="origen" class="form-control">
+                              <option value="">Seleccione un origen</option>
+                              <option *ngFor="let municipio of municipios" [value]="municipio._id">{{municipio.nombreLargo}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Destino</label>
+                            <select formControlName="destino" name="destino" class="form-control">
+                          <option value="">Seleccione un destino</option>
+                          <option *ngFor="let municipio of municipios" [value]="municipio._id">{{municipio.nombreLargo}}</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Valor Flete</label>
+                            <input formControlName="valorFlete" name="valorFlete" type="text" class="form-control" placeholder="Valor Flete">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>Descripcion</label>
+                            <textarea formControlName="descripcion" name="descripcion" class="form-control" rows="5" placeholder="Descripcion ruta"></textarea>
+                            <!-- <input formControlName="descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripcion ruta"> -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group col-md-12">
+                                <input formControlName="peaje" type="checkbox" id="checkbox_1" class="form-control filled-in" />
+                                <label for="checkbox_1">Peaje</label>
+                            </div>
+                            <div *ngIf="forma.controls['peaje'].value" class="form-group col-md-12">
+                                <label>Valor Peajes</label>
+                                <input formControlName="valorPeaje" name="valorPeaje" type="text" class="form-control" placeholder="Valor Peaje">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group col-md-12">
+                                <input formControlName="hotel" type="checkbox" id="checkbox_2" class="form-control filled-in" />
+                                <label for="checkbox_2">Hotel</label>
+                            </div>
+                            <div *ngIf="forma.controls['hotel'].value" class="form-group col-md-12">
+                                <label>Valor Viaticos</label>
+                                <input formControlName="valorViaticos" name="valorViaticos" type="text" class="form-control" placeholder="Valor Viaticos">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    </div>
+
+                    <button [disabled]="!forma.valid" type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+              <i class="fa fa-save"></i> Guardar
+          </button>
+                    <a [routerLink]="['/rutas']" class="btn btn-inverse waves-effect waves-light">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <pre>{{forma.value | json}}</pre>
+</div>
+<div>
+    <pre>{{forma.valid}}</pre>
+</div>
